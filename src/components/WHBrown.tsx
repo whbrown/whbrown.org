@@ -21,22 +21,34 @@ class WHBrown extends React.Component {
   handleMouseOut: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void = (e) => {
     this.setState({ mouseOver: false });
   }
-  // hoverTime, setHoverTime = useState<number>(0);
   handleMouseOver: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void = (e) => {
     setTimeout(() => {
       this.setState({ mouseOver: true });
     }, 500)
+    // setTimeout(() => {
+    //   if (this.state.progressionIndex === this.state.progression.length - 1)
+    //     this.setState({ mouseOver: false })
+    // }, 10000)
   }
 
-  toggleGlow = (el: HTMLHeadingElement): void => {
-    el.classList.toggle('glow');
+  toggleGlow = (method: 'add' | 'remove', el: HTMLHeadingElement): void => {
+    if (method === 'add') {
+      el.classList.add('glow');
+    }
+    else if (method === 'remove') {
+      el.classList.remove('glow');
+    }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     const typing = setInterval(() => {
       if (this.state.progressionIndex === 2) {
-        const whbrown = document.querySelector('.whbrown')! as HTMLHeadingElement;
-        this.toggleGlow(whbrown);
+        const whbrown = document.querySelector('.whbrown') as HTMLHeadingElement;
+        if (whbrown && this.state.mouseOver) {
+          this.toggleGlow('add', whbrown);
+        } else if (whbrown) {
+          this.toggleGlow('remove', whbrown);
+        }
       }
       if (this.state.mouseOver && this.state.progressionIndex < this.state.progression.length - 1) {
         this.setState({
@@ -54,7 +66,6 @@ class WHBrown extends React.Component {
     const { progression, progressionIndex } = this.state;
     return (<a href="https://github.com/whbrown/"><Name className="whbrown" onChange={() => null} onMouseOut={this.handleMouseOut} onMouseOver={this.handleMouseOver}>{progression[progressionIndex]}</Name></a>)
   }
-
 }
 
 export default WHBrown;
