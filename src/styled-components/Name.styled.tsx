@@ -5,7 +5,7 @@ const Name = styled.h1`
   word-wrap: break-word;
   cursor: pointer;
   font-size: calc(4em + 6vw);
-  font-family: 'Recursive';
+  font-family: 'Recursive', Arial, Helvetica, sans-serif;
   font-variation-settings:"CASL" 0,"slnt" -1,"MONO" 0.5;
   font-weight: 600;
   color: #EFDC05;

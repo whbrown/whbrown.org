@@ -24,7 +24,7 @@ class WHBrown extends React.Component {
   handleMouseOver: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void = (e) => {
     setTimeout(() => {
       this.setState({ mouseOver: true });
-    }, 500)
+    }, 300)
     // setTimeout(() => {
     //   if (this.state.progressionIndex === this.state.progression.length - 1)
     //     this.setState({ mouseOver: false })
