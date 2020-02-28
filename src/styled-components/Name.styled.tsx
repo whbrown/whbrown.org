@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Name = styled.h1`
-  transition: all 3s;
+  transition: all 2s;
   word-wrap: break-word;
   cursor: pointer;
   font-size: calc(4em + 6vw);
@@ -10,7 +10,8 @@ const Name = styled.h1`
   font-weight: 600;
   color: #EFDC05;
   width: 100%;
-  padding: 0em 0.5em 1em;
+  margin-bottom: 30vh;
+  /* padding: 0em 0.5em 1em; */
   /* margin: 2em 0 5em; */
   &:hover {
     font-weight:700;
